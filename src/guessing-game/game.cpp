@@ -11,11 +11,26 @@ int main()
     static const int target_number = 1 + static_cast<int>(100*std::rand()*base);
     int user_guess = 0; 
     std::cout << " Guess a number between 1 - 100 \n"; 
-    std::cin >> user_guess; 
-    while(user_guess != target_number)
+    for (uint8_t i = 0; i <= 4; i++)
     {
-        std::cout << " Wrong !!,  Guess again  :D ! \n"; 
         std::cin >> user_guess; 
+        if(user_guess == target_number)
+        {
+            std::cout << "You win \n"; 
+            break; 
+        }
+        else if(user_guess < target_number)
+        {
+            std::cout << "Guess higher \n"; 
+        }
+        else if(user_guess > target_number)
+        {
+            std::cout << "Guess lower \n"; 
+        }
+        else if(i == 4)
+        {
+            std::cout << "You lose \n"; 
+        }
     }
     return 0; 
 }
